@@ -27,7 +27,7 @@ namespace test_eus_numpy {
 
   void init_py() {
     // Allow Python to load modules from PYTHONPATH directory.
-    setenv("PYTHONPATH", "/home/kangaroo/test_eus_numpy", 1);
+    setenv("PYTHONPATH", "/home/kangaroo/work/test_eus_numpy", 1);
     // Initialize for Boost.Python and Boost.Numpy
     Py_Initialize();
     np::initialize();

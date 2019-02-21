@@ -27,8 +27,8 @@ include_directories(/usr/include/eigen3)
 ### Build
 add_library(TestEusNumpy SHARED call_pyfunc.cpp)
 set_target_properties(TestEusNumpy PROPERTIES SUFFIX ".so")
-target_link_libraries(TestEusNumpy boost_numpy boost_python)
+target_link_libraries(TestEusNumpy boost_numpy boost_python ${PYTHON_LIBRARIES})
 
 ### Build
 add_executable(test_pyfunc_in_cpp test_pyfunc_in_cpp.cpp)
-target_link_libraries(test_pyfunc_in_cpp boost_numpy boost_python boost_program_options ${PYTHON_LIBRARIES})
+target_link_libraries(test_pyfunc_in_cpp boost_numpy boost_python ${PYTHON_LIBRARIES})

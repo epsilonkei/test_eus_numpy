@@ -19,4 +19,5 @@
   (test_eusnp::_add123 arr ret)
   )
 
+(test_eusnp::init-py)
 (warning-message 1 "~%[test_eusnp] test_eusnp::add123~%")
