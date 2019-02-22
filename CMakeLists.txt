@@ -26,10 +26,10 @@ include_directories(/usr/include/eigen3)
 set(LIBS ${PYTHON_LIBRARIES} boost_python boost_program_options boost_numpy -rdynamic -ldl)
 
 ### Build
-add_library(TestEusNumpy SHARED call_pyfunc.cpp)
+add_library(TestEusNumpy SHARED impl_call_pyfunc.cpp)
 set_target_properties(TestEusNumpy PROPERTIES SUFFIX ".so")
 target_link_libraries(TestEusNumpy ${LIBS})
 
 ### Build
-add_executable(call_pyfunc call_pyfunc.cpp)
+add_executable(call_pyfunc impl_call_pyfunc.cpp)
 target_link_libraries(call_pyfunc ${LIBS})
