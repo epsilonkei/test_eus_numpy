@@ -24,11 +24,13 @@ link_directories(${BOOST_NUMPY_ROOT}/lib64)
 ### Eigen
 include_directories(/usr/include/eigen3)
 
+link_directories(${PROJECT_SOURCE_DIR}/lib)
+
 ### Build
-add_library(TestEusNumpy SHARED call_pyfunc.cpp)
-set_target_properties(TestEusNumpy PROPERTIES SUFFIX ".so")
-target_link_libraries(TestEusNumpy boost_numpy boost_python)
+add_library(TestEusNumpy SHARED test_pyfunc_in_cpp.cpp)
+set(libs ${PYTHON_LIBRARIES} boost_python boost_program_options boost_numpy -rdynamic -ldl)
+target_link_libraries(TestEusNumpy ${libs})
 
 ### Build
 add_executable(test_pyfunc_in_cpp test_pyfunc_in_cpp.cpp)
-target_link_libraries(test_pyfunc_in_cpp boost_numpy boost_python boost_program_options ${PYTHON_LIBRARIES})
+target_link_libraries(test_pyfunc_in_cpp ${libs})

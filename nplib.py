@@ -3,7 +3,6 @@
 
 import numpy as np
 
-
 def add123(arr):
     print "In python: " + str(arr)
     assert len(arr.shape) == 1, 'Array must be 1-d dimensional'
