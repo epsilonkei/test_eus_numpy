@@ -11,12 +11,13 @@
   (defforeign _add123 lib "test_eusnp_add123" (:string :string) :integer)
   )
 
-(defvar test_eusnp::*arr* (instantiate float-vector 3))
+(defvar test_eusnp::*arr* #f(1 1 1))
 (defvar test_eusnp::*ret* (instantiate float-vector 3))
 
 (defun test_eusnp::add123
     (&key (arr test_eusnp::*arr*) (ret test_eusnp::*ret*))
   (test_eusnp::_add123 arr ret)
+  (format t "~A -> ~A~%" arr ret)
   )
 
 (test_eusnp::init-py)
